@@ -5,7 +5,7 @@ const server = net.createServer((socket) => {
     console.log('Client connected');
 
     socket.on('data', (data) => {
-        const command = data.toString().trim();
+        const command = data.toString().trim().toUpperCase();
         switch (command) {
             case 'DATE':
                 socket.write(moment().format('YYYY-MM-DD') + '\n');
